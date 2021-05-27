@@ -89,7 +89,7 @@ extension xViewController: UITableViewDelegate, UITableViewDataSource {
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: "goToSecondPage", sender: self)
+        performSegue(withIdentifier: "goto", sender: self)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130

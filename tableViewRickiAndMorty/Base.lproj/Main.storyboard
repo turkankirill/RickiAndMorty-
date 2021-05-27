@@ -37,7 +37,7 @@
                     <navigationItem key="navigationItem" id="BQd-zc-80L"/>
                     <connections>
                         <outlet property="table" destination="PTx-Ts-M3C" id="Hin-v6-jXh"/>
-                        <segue destination="Jba-h7-1VX" kind="show" identifier="goToSecondPage" id="nDM-FT-CvY"/>
+                        <segue destination="dBM-dJ-znE" kind="show" identifier="goto" id="vBn-wA-UwT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -104,24 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8T-a1-vN9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1764" y="114"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="U1o-jX-dfE">
-            <objects>
-                <navigationController id="Jba-h7-1VX" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Kz6-id-Gfh"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VRm-HI-fcK">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="dBM-dJ-znE" kind="custom" id="2ty-Vz-JI4"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qap-GR-tfP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="858" y="114"/>
+            <point key="canvasLocation" x="1261" y="114"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aRc-SY-bmN">
