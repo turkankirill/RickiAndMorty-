@@ -81,11 +81,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.typeLabel.text = "\(personaj.origin.name)"
 
         cell.imgView.kf.setImage(with: URL(string: personaj.image!))
-        
-        
-        
+       
         return cell
     }
+    
+
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }

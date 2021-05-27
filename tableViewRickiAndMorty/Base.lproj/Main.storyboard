@@ -37,6 +37,7 @@
                     <navigationItem key="navigationItem" id="BQd-zc-80L"/>
                     <connections>
                         <outlet property="table" destination="PTx-Ts-M3C" id="Hin-v6-jXh"/>
+                        <segue destination="Jba-h7-1VX" kind="show" identifier="goToSecondPage" id="nDM-FT-CvY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -103,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8T-a1-vN9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1704" y="131"/>
+            <point key="canvasLocation" x="1764" y="114"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="U1o-jX-dfE">
@@ -115,7 +116,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="dBM-dJ-znE" kind="relationship" relationship="rootViewController" id="ebe-Hb-NQg"/>
+                        <segue destination="dBM-dJ-znE" kind="custom" id="2ty-Vz-JI4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qap-GR-tfP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
