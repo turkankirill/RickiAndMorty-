@@ -40,6 +40,11 @@ class xViewController: UIViewController {
         //print(namei.count)
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let showVC = segue.destination as? SecondViewController else { return }
+        guard let indexPath = table.indexPathForSelectedRow else { return }
+        showVC.global = name[indexPath.row]
+    }
     
     func fetchData() { //for id: Int
        let url = "https://rickandmortyapi.com/api/character/?page=1"
