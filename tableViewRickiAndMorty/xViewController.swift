@@ -18,6 +18,9 @@ class xViewController: UIViewController {
     //private var structsApi = [Results]
     
     private var name = [Results]()
+    let episodes = [Episode]()
+    
+    
     
     
     override func viewDidLoad() {
@@ -36,6 +39,7 @@ class xViewController: UIViewController {
         
         
         
+        
         //}
         //print(namei.count)
         
@@ -44,6 +48,7 @@ class xViewController: UIViewController {
         guard let showVC = segue.destination as? SecondViewController else { return }
         guard let indexPath = table.indexPathForSelectedRow else { return }
         showVC.global = name[indexPath.row]
+        showVC.name1 = name.filter{$0.origin.name == name[indexPath.row].origin.name }
     }
     
     func fetchData() { //for id: Int
@@ -68,6 +73,9 @@ class xViewController: UIViewController {
             }
         }
     }
+   
+    
+        
     
 }
 
@@ -84,7 +92,10 @@ extension xViewController: UITableViewDelegate, UITableViewDataSource {
         let personaj = name[indexPath.row]
         cell.nameLabel.text = "\(personaj.name)"
         cell.typeLabel.text = "\(personaj.origin.name)"
-
+        
+       
+        
+        
         cell.imgView.kf.setImage(with: URL(string: personaj.image!))
         
         
@@ -97,8 +108,6 @@ extension xViewController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "goto", sender: self)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
+        return 140
     }
-    
-   
 }

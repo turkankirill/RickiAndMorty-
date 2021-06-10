@@ -7,18 +7,45 @@
 
 import Foundation
 
+
 struct ApiStruct: Decodable {
-    let results: [Results]
+    var info: Info
+    var results: [Results]
+}
+struct Info: Decodable {
+    var count: Int
+    var pages: Int
+    var next: String
+    var prev: String?
 }
 struct Results: Decodable {
-    let id: Int
+    var id: Int
     var name: String
-    let status: String
-    let origin: Origin
-    let image: String?
-    
+    var status: String
+    var species: String
+    var type: String
+    var gender: String
+    var origin: Origin
+    var location: Location
+    var image: String?
+    var episode: [String]
+    var url: String
+    var created: String
 }
-struct Origin: Codable {
-    let name: String
-    let url: String?
+struct Origin: Decodable {
+    var name: String
+    var url: String
+}
+struct Location: Decodable {
+    var name: String
+    var url: String
+}
+struct Episode: Decodable {
+    var id: Int
+    var name: String
+    var air_date: String
+    var episode: String
+    var characters: [String]
+    var url: String
+    var created: String
 }

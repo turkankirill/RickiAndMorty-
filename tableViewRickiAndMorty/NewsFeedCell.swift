@@ -33,7 +33,8 @@ class NewsfeedCell: UITableViewCell {
         layer.shadowRadius = 7.0
         layer.shadowOpacity = 0.1
         layer.shadowOffset = CGSize(width: 2.5, height: 2.5)
-    
+        
+        
     }
 
    
