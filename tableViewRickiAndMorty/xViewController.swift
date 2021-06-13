@@ -18,7 +18,9 @@ class xViewController: UIViewController {
     //private var structsApi = [Results]
     
     private var name = [Results]()
-    let episodes = [Episode]()
+    var episodes: [String: String] = [:]
+
+    
     
     
     
@@ -40,6 +42,8 @@ class xViewController: UIViewController {
         
         
         
+        
+        
         //}
         //print(namei.count)
         
@@ -51,8 +55,8 @@ class xViewController: UIViewController {
         showVC.name1 = name.filter{$0.origin.name == name[indexPath.row].origin.name }
     }
     
-    func fetchData() { //for id: Int
-       let url = "https://rickandmortyapi.com/api/character/?page=1"
+    func fetchData() {
+        let url = "https://rickandmortyapi.com/api/character/?page=1"
         AF.request(url).responseData { (dataResponse) in
             if let error = dataResponse.error {
                 print("Error received requestiong data: \(error.localizedDescription)")
@@ -66,14 +70,40 @@ class xViewController: UIViewController {
                 let object = try decoder.decode(ApiStruct.self, from: data)
                 self.name = object.results
                 self.table.reloadData()
-                
+                self.fetchDataEpisode()
                 
             } catch let jsonError {
                 print("Daild to decode JSON", jsonError)
             }
         }
     }
-   
+    
+    func fetchDataEpisode() {
+        for item in name {
+            guard let url = item.episode.first else {return}
+            AF.request(url).responseData { (dataResponse) in
+            if let error = dataResponse.error {
+                print("Error received requestiong data: \(error.localizedDescription)")
+                return
+            }
+            guard let data = dataResponse.data else { return }
+            
+            let decoder = JSONDecoder()
+            do {
+                
+                let object = try decoder.decode(Episode.self, from: data)
+                self.episodes[item.name] = object.name
+                print(object.name)
+                self.table.reloadData()
+                                
+                
+            } catch let jsonError {
+                print("Daild to decode JSON", jsonError)
+            }
+        }
+        }
+    }
+    
     
         
     
@@ -92,8 +122,9 @@ extension xViewController: UITableViewDelegate, UITableViewDataSource {
         let personaj = name[indexPath.row]
         cell.nameLabel.text = "\(personaj.name)"
         cell.typeLabel.text = "\(personaj.origin.name)"
+       // cell.episodeLabel.text = "\(personaj.episode)"
+        cell.episodeLabel.text = episodes[name[indexPath.row].name]
         
-       
         
         
         cell.imgView.kf.setImage(with: URL(string: personaj.image!))
