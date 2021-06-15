@@ -19,6 +19,7 @@ class xViewController: UIViewController {
     
     private var name = [Results]()
     var episodes: [String: String] = [:]
+    var info: Info?
 
     
     
@@ -36,8 +37,8 @@ class xViewController: UIViewController {
         table.backgroundColor = .clear
         view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         //for index in 1...34{
-        
-        fetchData()
+        let url = "https://rickandmortyapi.com/api/character/?page=1"
+        fetchData(by: url)
         
         
         
@@ -53,10 +54,13 @@ class xViewController: UIViewController {
         guard let indexPath = table.indexPathForSelectedRow else { return }
         showVC.global = name[indexPath.row]
         showVC.name1 = name.filter{$0.origin.name == name[indexPath.row].origin.name }
+        
+        showVC.episodes1 = episodes
+
     }
     
-    func fetchData() {
-        let url = "https://rickandmortyapi.com/api/character/?page=1"
+    func fetchData(by url: String) {
+        
         AF.request(url).responseData { (dataResponse) in
             if let error = dataResponse.error {
                 print("Error received requestiong data: \(error.localizedDescription)")
@@ -68,7 +72,8 @@ class xViewController: UIViewController {
             do {
                 
                 let object = try decoder.decode(ApiStruct.self, from: data)
-                self.name = object.results
+                self.name.append(contentsOf: object.results)
+                self.info = object.info
                 self.table.reloadData()
                 self.fetchDataEpisode()
                 
@@ -93,7 +98,7 @@ class xViewController: UIViewController {
                 
                 let object = try decoder.decode(Episode.self, from: data)
                 self.episodes[item.name] = object.name
-                print(object.name)
+                
                 self.table.reloadData()
                                 
                 
@@ -122,12 +127,17 @@ extension xViewController: UITableViewDelegate, UITableViewDataSource {
         let personaj = name[indexPath.row]
         cell.nameLabel.text = "\(personaj.name)"
         cell.typeLabel.text = "\(personaj.origin.name)"
-       // cell.episodeLabel.text = "\(personaj.episode)"
         cell.episodeLabel.text = episodes[name[indexPath.row].name]
         
         
         
         cell.imgView.kf.setImage(with: URL(string: personaj.image!))
+        
+        if indexPath.row == name.count - 1,
+             let info = info {
+            fetchData(by: info.next)
+          }
+        
         
         
         

@@ -13,6 +13,8 @@ class SecondViewController: UIViewController {
 
     var global: Results?
     var name1 = [Results]()
+    var globalEpisode: Episode?
+    var episodes1: [String: String] = [:]
     
     @IBOutlet weak var tableSecond: UITableView!
     
@@ -31,7 +33,7 @@ class SecondViewController: UIViewController {
         // Do any additional setup after loading the view.
         nameLabel.text = global?.name
         locationLabel.text = global?.origin.name
-        seenLabel.text = global?.status
+        seenLabel.text = episodes1[global!.name]
         statusLabel.text = global?.status
         
         alsoFrom.text = "Also From '\(global?.origin.name ?? "")'"
@@ -61,8 +63,10 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
         let personaj1 = name1[indexPath.row]
         cell.nameLabel.text = "\(personaj1.name)"
         cell.typeLabel.text = "\(personaj1.origin.name)"
-        cell.episodeLabel.text = "\(personaj1.episode)"
+        cell.episodeLabel.text = episodes1[name1[indexPath.row].name]
         cell.imgView.kf.setImage(with: URL(string: personaj1.image!))
+        
+        
         
         
         return cell
