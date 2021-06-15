@@ -4,6 +4,7 @@
 //
 //  Created by Turkan Kirill on 17.03.2021.
 //
+//
 
 import Foundation
 import UIKit
@@ -12,7 +13,7 @@ import Alamofire
 class NewsfeedCell: UITableViewCell {
     
     @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var imgView: WebImageView!
+    @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var episodeLabel: UILabel!
@@ -25,6 +26,7 @@ class NewsfeedCell: UITableViewCell {
 //    }
     override func awakeFromNib(){
         super.awakeFromNib()
+        // cтиль для xib (тень, цвет)
         cardView.layer.cornerRadius = 10
         cardView.clipsToBounds = true
         backgroundColor = .clear

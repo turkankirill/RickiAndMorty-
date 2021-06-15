@@ -4,6 +4,7 @@
 //
 //  Created by Turkan Kirill on 18.03.2021.
 //
+// Вторичный экран
 
 import UIKit
 import SwiftUI
@@ -30,7 +31,7 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        // Do any additional setup after loading the view.
+        
         nameLabel.text = global?.name
         locationLabel.text = global?.origin.name
         seenLabel.text = episodes1[global!.name]
@@ -65,17 +66,13 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
         cell.typeLabel.text = "\(personaj1.origin.name)"
         cell.episodeLabel.text = episodes1[name1[indexPath.row].name]
         cell.imgView.kf.setImage(with: URL(string: personaj1.image!))
-        
-        
-        
-        
+
         return cell
     }
+    
+    // Высота ячейки
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
-   
-
-    
    
 }

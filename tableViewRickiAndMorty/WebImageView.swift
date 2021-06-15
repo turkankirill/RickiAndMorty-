@@ -4,7 +4,7 @@
 //
 //  Created by Turkan Kirill on 18.03.2021.
 //
- 
+// Преобразования картинки 
 import UIKit
 
 class WebImageView: UIImageView {
