@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         
         let url = "https://rickandmortyapi.com/api/character/?page=1"
         fetchData(by: url)
+        
     }
     
     

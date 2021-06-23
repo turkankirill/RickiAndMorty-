@@ -52,9 +52,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ayA-D0-ZuH">
-                                <rect key="frame" x="0.0" y="367" width="414" height="529"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ayA-D0-ZuH">
+                                <rect key="frame" x="0.0" y="377" width="414" height="519"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="dBM-dJ-znE" id="YrS-ce-2La"/>
@@ -131,8 +130,14 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vKV-Xj-r5t"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ayA-D0-ZuH" firstAttribute="bottom" secondItem="vKV-Xj-r5t" secondAttribute="bottom" constant="34" id="43f-sC-CLD"/>
+                            <constraint firstItem="ayA-D0-ZuH" firstAttribute="top" secondItem="vKV-Xj-r5t" secondAttribute="top" constant="289" id="FXg-E2-Jss"/>
+                            <constraint firstItem="vKV-Xj-r5t" firstAttribute="trailing" secondItem="ayA-D0-ZuH" secondAttribute="trailing" id="JZz-PG-yIl"/>
+                            <constraint firstItem="ayA-D0-ZuH" firstAttribute="leading" secondItem="vKV-Xj-r5t" secondAttribute="leading" id="lRw-pd-omo"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="FiG-hI-z4K"/>
+                    <navigationItem key="navigationItem" id="FiG-hI-z4K" colorLabel="IBBuiltInLabel-Red"/>
                     <connections>
                         <outlet property="alsoFrom" destination="jny-jM-pbg" id="Kzi-vq-4Jb"/>
                         <outlet property="imageViewS" destination="FOQ-dg-YWM" id="a5f-RS-dZS"/>
